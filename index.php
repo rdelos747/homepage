@@ -80,7 +80,7 @@ echo "</div>";
 // //////////////////////////////////////////
 echo "<div class='links-col'><div class='links'>";
 foreach($JSON->links as $name => $addr) {
-	echo "<a href='".$addr."'><p class='load'>".$name."</p></a>";
+	echo "<p class='load' data-name='".$name."'><a href='".$addr."'>".$name."</a><span>&nbsp;[delete]</span></p>";
 }
 echo "</div>";
 // LINK CONTROLS

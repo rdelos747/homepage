@@ -2,7 +2,7 @@
 /* G L O B A L S */
 /* ===================== */
 * {margin:0px;}
-body {background-color: black;min-width:931px;}
+body {background-color: black;min-width:1081px;}
 p {font-size: 12px; line-height:14px; color:#bbb;}
 a {text-decoration: none;color:inherit;}
 a:hover {text-decoration: none;color:inherit;}
@@ -52,7 +52,11 @@ p.mist {color:black;background-color:#99ffcc;border:1px solid black;}
 
 .links-col {
 	float:right;
+	width:300px;
 }
+
+.links p span {display:none;}
+.links p:hover span {display:inline-block;cursor:pointer;color:red;}
 
 input {
     background-color:black;

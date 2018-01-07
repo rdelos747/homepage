@@ -39,6 +39,10 @@ function bindClicks() {
 		$(this).parent().removeClass("active");
 		sendLink($(this).siblings(".new-name").val(), $(this).siblings(".new-addr").val());
 	});
+
+	$(".links").on("click", "p span", function() {
+		remLink($(this).parent().data("name"));
+	});
 }
 
 function sendLink(name, addr) {
@@ -59,7 +63,24 @@ function sendLink(name, addr) {
 	});
 }
 
+function remLink(name) {
+	var data = {name:name}
+
+	$.ajax ( {
+		type:"Post",
+		data:data,
+		url:"remove.php",
+		success:function(data) {
+			removeLink(data);
+		}
+	});
+}
+
 function placeLink(data) {
-	var text = "<a href='"+data[1]+"'><p class='load active'>"+data[0]+"</p></a>";
+	var text = "<p class='load active' data-name='"+data[0]+"'><a href='"+data[1]+"'>"+data[0]+"</a><span>&nbsp;[delete]</span></p>";
 	$(".links").append(text);
+}
+
+function removeLink(data) {
+	$(".links p[data-name='"+data+"']").remove();
 }
