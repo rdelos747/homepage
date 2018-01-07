@@ -1,0 +1,72 @@
+/* ===================== */
+/* G L O B A L S */
+/* ===================== */
+* {margin:0px;}
+body {background-color: black;min-width:931px;}
+p {font-size: 12px; line-height:14px; color:#bbb;}
+a {text-decoration: none;color:inherit;}
+a:hover {text-decoration: none;color:inherit;}
+
+div {width:150px;float:left;margin-right:5px;}
+.load {opacity:0;}
+.load.active{opacity:1;}
+
+/* ===================== */
+/* S T A T E S */
+/* ===================== */
+/* CLOUDY SKYS */
+p.few_clouds {color:white;background-color:#222;border:1px solid black;}
+p.scattered_clouds {color:white;background-color:#222;border:1px solid black;}
+p.broken_clouds {color:white;background-color:#222;border:1px solid black;}
+
+/* RAIN/ SNOW */
+p.light_snow {color:black;background-color:#649cef;border:1px solid black;}
+p.light_rain {color:black;background-color:#649cef;border:1px solid black;}
+p.rain {color:black;background-color:#0000ff;border:1px solid black;}
+p.snow {color:black;background-color:#0000ff;border:1px solid black;}
+p.shower_rain {color:black;background-color:#0000ff;border:1px solid black;}
+
+/* OTHER */
+p.clear_sky {color:white;background-color:black;border:1px solid white;}
+p.thunder_storm {color:black;background-color:#e6e600;border:1px solid black;}
+p.mist {color:black;background-color:#99ffcc;border:1px solid black;}
+
+/* ===================== */
+/* T E M P S */
+/* ===================== */
+.tempspan {display:inline-block;width:50px;}
+.t90 {color:black;background-color:#ff4000;}
+.t80 {color:black;background-color:#ffbf00;}
+.t70 {color:black;background-color:#bfff00;}
+.t60 {color:black;background-color:#00ff80;}
+.t50 {color:black;background-color:#00ffbf;}
+.t40 {color:black;background-color:#00ffff;}
+.t30 {color:black;background-color:#00bfff;}
+.t20 {color:black;background-color:#0080ff;}
+.t10 {color:black;background-color:#0000ff;}
+.t0 {color:black;background-color:#8000ff}
+
+/* ===================== */
+/* L I N K S */
+/* ===================== */
+
+.links-col {
+	float:right;
+}
+
+input {
+    background-color:black;
+    border:none;
+    border-bottom:1px solid white;
+    display:block;
+    color:white;
+    outline:none;
+}
+
+.link-add {width:100%;}
+.plus {cursor:pointer;}
+.minus, .submit-link, input {cursor:pointer;display:none;}
+.submit-link {margin-top:10px;}
+
+.link-add.active .plus {display:none;}
+.link-add.active .minus, .link-add.active .submit-link, .link-add.active input {cursor:pointer;display:block;}
