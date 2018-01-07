@@ -1,2 +1,0 @@
-# homepage
-personal homepage
