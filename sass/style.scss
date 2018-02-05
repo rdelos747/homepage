@@ -1,0 +1,117 @@
+// ///////////////////////////
+// V A R S
+// ////////////////////////////////////////////////////
+$bkColor:			#000;
+$fontColor:			#bbb;
+
+$temp90:			#ff4000;
+$temp80:			#ffbf00;
+$temp70:			#bfff00;
+$temp60:			#00ff80;
+$temp50:			#00ffbf;
+$temp40:			#00ffff;
+$temp30:			#00bfff;
+$temp20:			#0080ff;
+$temp10:			#0000ff;
+$temp0:				#8000ff;
+
+$clouds:			#555;
+$heavy-clouds:		#999;
+$lightPrecip:		#949fff;
+$regPrecip:			#0000ff;
+$heavyPrecip:		#000099;
+$thunder:			#e6e600;
+$mist:				#99ffcc;
+
+// ///////////////////////////
+// G L O B A L S
+// ////////////////////////////////////////////////////
+* {margin:0px;}
+body {background-color: $bkColor;min-width:1081px;}
+p, span, br {font-size: 12px; line-height:14px; color:$fontColor;}
+a {text-decoration: none;color:inherit;}
+a:hover {text-decoration: none;color:inherit;}
+
+div {width:150px;float:left;margin-right:5px;}
+.load {opacity:0;}
+.load.active{opacity:1;}
+
+// ///////////////////////////
+// S T A T E S
+// ////////////////////////////////////////////////////
+p {
+	// CLOUDY SKYS 
+	&.few_clouds, &.scattered_clouds, &.broken_clouds {
+		color:white;background-color:$clouds;border:1px solid black;
+	}
+	&.overcast_clouds{
+		color:black;background-color:$heavy-clouds;border:1px solid black;
+	}
+
+	//RAIN/ SNOW 
+	&.light_snow, &.light_rain {
+		color:black;background-color:$lightPrecip;border:1px solid black;
+	}
+	&.rain, &.snow, &.shower_rain, &.moderate_rain {
+		color:white;background-color:$regPrecip;border:1px solid black;
+	}
+	&.heavy_intensity_rain {
+		color:white;background-color:$heavyPrecip;border:1px solid black;
+	}
+
+	//OTHER
+	&.clear_sky {
+		color:white;background-color:$bkColor;border:1px solid white;
+	}
+	&.thunder_storm {
+		color:black;background-color:$thunder;border:1px solid black;
+	}
+	&.mist {
+		color:black;background-color:$mist;border:1px solid black;
+	}
+}
+
+// ///////////////////////////
+// T E M P S
+// ////////////////////////////////////////////////////
+//.tempspan {display:inline-block;padding-right:20px;}
+span {display:inline-block;width:70px;}
+.t90 {color:black;background-color:$temp90;}
+.t80 {color:black;background-color:$temp80;}
+.t70 {color:black;background-color:$temp70;}
+.t60 {color:black;background-color:$temp60;}
+.t50 {color:black;background-color:$temp50;}
+.t40 {color:black;background-color:$temp40;}
+.t30 {color:black;background-color:$temp30;}
+.t20 {color:black;background-color:$temp20;}
+.t10 {color:black;background-color:$temp10;}
+.t0 {color:black;background-color:$temp0}
+
+// ///////////////////////////
+// L I N K S
+// ////////////////////////////////////////////////////
+
+.links-col {
+	float:right;
+	width:300px;
+}
+
+.links p span {display:none;}
+.links p:hover span {display:inline-block;cursor:pointer;color:red;}
+
+input {
+    background-color:black;
+    border:none;
+    border-bottom:1px solid white;
+    display:block;
+    color:white;
+    outline:none;
+}
+
+.link-add {width:100%;}
+.plus {cursor:pointer;}
+.minus, .submit-link, input {cursor:pointer;display:none;}
+.submit-link {margin-top:10px;}
+
+.link-add.active .plus {display:none;}
+.link-add.active .minus, .link-add.active .submit-link, .link-add.active input {cursor:pointer;display:block;}

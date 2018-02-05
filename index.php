@@ -20,11 +20,20 @@ $START = 0;
 // /////////////////////
 // W E A T H E R
 // //////////////////////////////////////////
+$convertedDate = date('l Y-n-d', $WEATHER_DATA->dt);
+$dayofweek = explode(" ",$convertedDate)[0];
+$numDate = explode(" ",$convertedDate)[1];
+$mainTemp = getFar($WEATHER_DATA->main->temp);
+$mainHum = $WEATHER_DATA->main->humidity;
+$mainTempHi = getFar($WEATHER_DATA->main->temp_max);
+$mainTempLo = getFar($WEATHER_DATA->main->temp_max);
+$sunrise = date("H:i", $WEATHER_DATA->sys->sunrise);
+$sunset = date("H:i", $WEATHER_DATA->sys->sunset);
 
-echo "<p>".date('l Y-n-d', $WEATHER_DATA->dt)."</p>";
-echo "<p>temp: ".getFar($WEATHER_DATA->main->temp)."&deg humidity: ".$WEATHER_DATA->main->humidity."%</p>";
-echo "<p>hi: ".getFar($WEATHER_DATA->main->temp_max)."&deg lo: ".$WEATHER_DATA->main->temp_min."&deg</p>";
-echo "<p>sunrise: ".date("H:i", $WEATHER_DATA->sys->sunrise)." sunset: ".date("H:i", $WEATHER_DATA->sys->sunset)."</p>";
+echo "<p><span>".$dayofweek."</span><span>".$numDate."</span></p>";
+echo "<p><span>temp: </span><span class='".getTempClass($mainTemp)."'>".$mainTemp."&deg</span><span>humidity: </span><span>".$mainHum."%</span></p>";
+echo "<p><span>hi: </span><span class='".getTempClass($mainTempHi)."'>".$mainTempHi."&deg</span><span>lo: </span><span class='".getTempClass($mainTempLo)."'>".$mainTempLo."&deg</span></p>";
+echo "<p><span>sunrise: </span><span>".$sunrise."</span><span>sunset: </span><span>".$sunset."</span></p>";
 
 $INDEX = 0;
 foreach($FORECAST_DATA->list as $item) {
@@ -41,18 +50,7 @@ foreach($FORECAST_DATA->list as $item) {
 	}
 	$state = $item->weather[0]->description;
 	$dataState = str_replace(" ", "_", $state);
-
-	$tempClass = "0";
-	if ($temp >= 90) {$tempClass = "t90";}
-	else if ($temp >= 80) {$tempClass = "t80";}
-	else if ($temp >= 70) {$tempClass = "t70";}
-	else if ($temp >= 60) {$tempClass = "t60";}
-	else if ($temp >= 50) {$tempClass = "t50";}
-	else if ($temp >= 40) {$tempClass = "t40";}
-	else if ($temp >= 30) {$tempClass = "t30";}
-	else if ($temp >= 20) {$tempClass = "t20";}
-	else if ($temp >= 10) {$tempClass = "t10";}
-	else {$tempClass = "t0";}
+	$tempClass = getTempClass($temp);
 
 	if ($CURRENT_DATE != $newDate) {
 		$CURRENT_DATE = $newDate;
@@ -115,6 +113,21 @@ function getFar($x) {
 
 function getPrecip($x) {
 	return round(floatval($x), 1);
+}
+
+function getTempClass($t) {
+	$newT = "0";
+	if ($t >= 90) {$newT = "t90";}
+	else if ($t >= 80) {$newT = "t80";}
+	else if ($t >= 70) {$newT = "t70";}
+	else if ($t >= 60) {$newT = "t60";}
+	else if ($t >= 50) {$newT = "t50";}
+	else if ($t >= 40) {$newT = "t40";}
+	else if ($t >= 30) {$newT = "t30";}
+	else if ($t >= 20) {$newT = "t20";}
+	else if ($t >= 10) {$newT = "t10";}
+	else {$newT = "t0";}
+	return $newT;
 }
 
 ?>
